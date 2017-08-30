@@ -1,10 +1,12 @@
 package kurs.zadania.sandbox;
 
+
 public class Punkt {
 
-  double x1;
-  double y1;
-  double x2;
-  double y2;
+  public double x1;
+  public double y1;
+  public double x2;
+  public double y2;
 
 }
+

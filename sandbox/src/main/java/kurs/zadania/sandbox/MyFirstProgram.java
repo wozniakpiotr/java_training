@@ -1,15 +1,16 @@
 package kurs.zadania.sandbox;
 
+
 public class MyFirstProgram {
 
   public static void main(String[] args) {
 
     Punkt p1 = new Punkt();
     Punkt p2 = new Punkt();
-    p1.x1 = 10;
-    p1.y1 = 10;
-    p2.x2 = 10;
-    p2.y2 = 20;
+    p1.x1 = 2;
+    p1.y1 = 2;
+    p2.x2 = 5;
+    p2.y2 = 6;
     System.out.println("Współrzędne punktu p1 to " + "x = " + p1.x1 + " i " + "y = " + p1.y1);
     System.out.println("Współrzędne punktu p2 to " + "x = " + p2.x2 + " i " + "y = " + p2.y2);
     System.out.println("Odległość między punktami p1 i p2" + " = " + distance(p1,p1));
@@ -17,8 +18,8 @@ public class MyFirstProgram {
   public static double distance(Punkt p1, Punkt p2)
 
   {
-    return Math.sqrt((p1.x1 - p2.x2)*(p1.x1 - p2.x2)+
-            (p1.y1 - p2.y2)*(p1.y1 - p2.y2));
+    return Math.sqrt((p2.x2 - p1.x1)*(p2.x2 - p1.x1)+
+            (p2.y2 - p1.y1)*(p2.y2 - p1.y1));
 
   }
 
