@@ -11,7 +11,9 @@ public class Punkt {
 }
     double x;
     double y;
+  double x;
 
+  double y;
   public Punkt(double x, double y) {
 
     this.x = x;
@@ -21,6 +23,7 @@ public class Punkt {
   public double distance(Punkt p) {
 
     return Math.sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+    return Math.sqrt((x - p.x)*(x - p.x) + (y - p.y)*(y - p.y));
   }
 
 }
