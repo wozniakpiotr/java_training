@@ -1,4 +1,4 @@
-package kurs.zadania.adressbook;
+package kurs.zadania.adressbook.model;
 
 public class GroupData {
   private final String name;

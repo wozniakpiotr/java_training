@@ -1,4 +1,4 @@
-package kurs.zadania.adressbook;
+package kurs.zadania.adressbook.model;
 
 public class ContactData {
   private final String firstname;
