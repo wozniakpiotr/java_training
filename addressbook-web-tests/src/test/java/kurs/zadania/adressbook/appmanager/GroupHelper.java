@@ -46,4 +46,17 @@ public class GroupHelper extends HelperBase{
     click(By.name("update"));
 
   }
+<<<<<<< HEAD
+=======
+
+  public void createGroup(GroupData group) {
+  initGroupCreation();
+  fillGroupForm(group);
+  submitGroupCreation();
+  returntoGroupPage();
+  }
+
+  public boolean isThereAGroup() { return isElementPresent(By.name("selected[]"));
+  }
+>>>>>>> parent of 0c641b0... Revert "Revert "Revert "NelperBase class optimalisation"""
 }
