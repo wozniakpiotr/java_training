@@ -14,10 +14,6 @@ public class ContactHelper extends HelperBase{
     super(wd);
   }
 
-  public void submitContact() {
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
-  }
-
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
@@ -27,10 +23,7 @@ public class ContactHelper extends HelperBase{
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
-      Assert.assertFalse(isElementPresent(By.name("New_group")));
-    }
-
-    if (isElementPresent(By.name("new_group"))) {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
 
@@ -38,14 +31,16 @@ public class ContactHelper extends HelperBase{
     wd.findElement(By.linkText("add new")).click();
   }
 
-  public void selectContact() {
-    click(By.id("11"));  }
+  /* public void selectContact() {
+    click(By.name("selected"));  } */
 
-  public void initContactModification() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
-  }
+  // public void initContactModification() {click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));}
+  public void initContactModification() {click(By.cssSelector("img[alt='Edit'"));}
 
-  public void submitContactModification() {
-    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
-  }
+  // public void submitContactModification() {click(By.xpath("//div[@id='content']/form[1]/input[22]"));}
+  public void submitContactModification() {click (By.name("update"));}
+
+  public void submitContactCreation() {click(By.name("submit")); }
+
+  public void returnToHomePage() {click(By.linkText("home page")); }
 }
