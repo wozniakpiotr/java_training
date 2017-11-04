@@ -47,10 +47,7 @@ public class GroupHelper extends HelperBase{
 
   }
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 61ef5e4... Revert "checking and ensuring the performance of the preconditions have been met"
 
   public void createGroup(GroupData group) {
   initGroupCreation();
@@ -59,13 +56,7 @@ public class GroupHelper extends HelperBase{
   returntoGroupPage();
   }
 
-<<<<<<< HEAD
   public boolean isThereAGroup() { return isElementPresent(By.name("selected[]"));
   }
 >>>>>>> parent of 0c641b0... Revert "Revert "Revert "NelperBase class optimalisation"""
-=======
-  public boolean isThereAGroup() {
-    return isElementPresent(By.name("selected[]"));
-  }
->>>>>>> parent of 61ef5e4... Revert "checking and ensuring the performance of the preconditions have been met"
 }
