@@ -31,9 +31,6 @@ public class ContactHelper extends HelperBase{
     wd.findElement(By.linkText("add new")).click();
   }
 
-  /* public void selectContact() {
-    click(By.name("selected"));  } */
-
   // public void initContactModification() {click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));}
   public void initContactModification() {click(By.cssSelector("img[alt='Edit'"));}
 
@@ -42,5 +39,14 @@ public class ContactHelper extends HelperBase{
 
   public void submitContactCreation() {click(By.name("submit")); }
 
+  public void selectContact() {click(By.name("selected[]"));  }
+
+  public void deleteSelectedContact() {click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    accept();}
+
   public void returnToHomePage() {click(By.linkText("home page")); }
+
+  public void acceptAlert() {
+  }
+
 }
