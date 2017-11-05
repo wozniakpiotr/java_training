@@ -31,22 +31,43 @@ public class ContactHelper extends HelperBase{
     wd.findElement(By.linkText("add new")).click();
   }
 
-  // public void initContactModification() {click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));}
-  public void initContactModification() {click(By.cssSelector("img[alt='Edit'"));}
+  public void initContactModification() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
 
-  // public void submitContactModification() {click(By.xpath("//div[@id='content']/form[1]/input[22]"));}
-  public void submitContactModification() {click (By.name("update"));}
+  public void submitContactModification() {
+    click (By.name("update"));
+  }
 
-  public void submitContactCreation() {click(By.name("submit")); }
+  public void submitContactCreation() {
+    click(By.name("submit"));
+  }
 
-  public void selectContact() {click(By.name("selected[]"));  }
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
 
-  public void deleteSelectedContact() {click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
-    accept();}
-
-  public void returnToHomePage() {click(By.linkText("home page")); }
+  public void deleteSelectedContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    accept();
+  }
 
   public void acceptAlert() {
   }
 
+  public void returnToHomePage() {
+    click(By.linkText("home page"));
+  }
+
+  public void createContact(ContactData contact) {
+    initContactCreation();
+    fillContactForm(contact, true);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
 }
