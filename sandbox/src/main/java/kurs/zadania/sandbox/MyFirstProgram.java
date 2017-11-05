@@ -6,9 +6,20 @@ public class MyFirstProgram {
   public static void main(String[] args) {
 
 
-    Punkt p1 = new Punkt(2, 2);
+  /*  positive values
 
+    Punkt p1 = new Punkt(2, 2);
     Punkt p2 = new Punkt(5, 6);
+
+      negative values
+      
+    Punkt p1 = new Punkt(-2, -2);
+    Punkt p2 = new Punkt(-5, -6);
+
+     zero values */
+
+    Punkt p1 = new Punkt(0, 0);
+    Punkt p2 = new Punkt(0, 0);
 
     System.out.println("Współrzędne punktu p1 to " + "x = " + p1.x + " i " + "y = " + p1.y);
     System.out.println("Współrzędne punktu p2 to " + "x = " + p2.x + " i " + "y = " + p2.y);
