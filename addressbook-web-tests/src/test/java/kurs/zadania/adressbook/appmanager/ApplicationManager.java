@@ -32,7 +32,7 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
     wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Program Files/Mozilla Firefox/firefox.exe"));
-    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://127.0.0.1:81/addressbook/");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
