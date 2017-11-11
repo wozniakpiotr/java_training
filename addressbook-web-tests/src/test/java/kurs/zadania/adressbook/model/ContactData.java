@@ -9,7 +9,7 @@ public class ContactData {
   private final String group;
 
   public ContactData(int id, String firstname, String lastname, String mobile, String email, String group) {
-    this.id = 0;
+    this.id = id;
     this.firstname = firstname;
     this.lastname = lastname;
     this.mobile = mobile;
@@ -17,7 +17,7 @@ public class ContactData {
     this.group = group;
   }
   public ContactData(String firstname, String lastname, String mobile, String email, String group) {
-    this.id = id;
+    this.id = Integer.MAX_VALUE;
     this.firstname = firstname;
     this.lastname = lastname;
     this.mobile = mobile;
@@ -57,6 +57,8 @@ public class ContactData {
   public String toString() {
     return "ContactData{" +
             "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
             '}';
   }
 
@@ -67,12 +69,16 @@ public class ContactData {
 
     ContactData that = (ContactData) o;
 
-    return id == that.id;
+    if (id != that.id) return false;
+    if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+    return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
   }
 
   @Override
   public int hashCode() {
-    return id;
+    int result = id;
+    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+    return result;
   }
-
 }
