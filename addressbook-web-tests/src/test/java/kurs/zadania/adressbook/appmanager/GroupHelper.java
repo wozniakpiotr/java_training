@@ -43,19 +43,30 @@ public class GroupHelper extends HelperBase{
 
   public void initGroupModification() {
     click(By.name("edit"));
-
   }
 
   public void submitGroupModification() {
     click(By.name("update"));
-
   }
 
-  public void createGroup(GroupData group) {
-  initGroupCreation();
-  fillGroupForm(group);
-  submitGroupCreation();
-  returntoGroupPage();
+  public void create(GroupData group) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    returntoGroupPage();
+  }
+
+  public void delete(int index) {
+    selectGroup(index);
+    deleteSelectedGroups();
+    returntoGroupPage();
+  }
+  public void modify(int inddex, GroupData group) {
+    selectGroup(inddex);
+    initGroupModification();
+    fillGroupForm(group);
+    submitGroupModification();
+    returntoGroupPage();
   }
 
   public boolean isThereAGroup() {
@@ -66,7 +77,7 @@ public class GroupHelper extends HelperBase{
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<GroupData> getGroupList() {                   // porównywanie rozmiarów list otrzymywanych za pomocą metody getGroupList
+  public List<GroupData> list() {                   // porównywanie rozmiarów list otrzymywanych za pomocą metody list
     List<GroupData> groups = new ArrayList<GroupData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {

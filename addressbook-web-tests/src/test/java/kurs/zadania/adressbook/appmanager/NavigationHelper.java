@@ -10,10 +10,10 @@ public class NavigationHelper extends HelperBase{
     super(wd);
   }
 
- // public void gotoGroupPage() { click(By.linkText("groups")); }
+ // public void groupPage() { click(By.linkText("groups")); }
 
 /* sprawdzanie elementu na stronie i przejście po linku - wariant 1
-  public void gotoGroupPage() {
+  public void groupPage() {
     if (!isElementPresent(By.tagName("h1"))
             || !wd.findElement(By.tagName("h1")).getText().equals("Groups")
             || !isElementPresent(By.name("new"))) {
@@ -23,7 +23,7 @@ public class NavigationHelper extends HelperBase{
 */
 // sprawdzanie elementu na stronie i przejście po linku - wariant 2 lepszy
 
-  public void gotoGroupPage() {
+  public void groupPage() {
     if (isElementPresent(By.tagName("h1"))
             && wd.findElement(By.tagName("h1")).getText().equals("Groups")
             && isElementPresent(By.name("new"))) {
@@ -32,7 +32,7 @@ public class NavigationHelper extends HelperBase{
       click(By.linkText("groups"));
     }
 
-  public void gotoHomePage() {
+  public void home() {
     if (isElementPresent(By.id("maintable"))) {
       return;
     }
