@@ -1,6 +1,7 @@
 package kurs.zadania.adressbook.appmanager;
 
 import kurs.zadania.adressbook.model.GroupData;
+import kurs.zadania.adressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -78,8 +79,8 @@ public class GroupHelper extends HelperBase{
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public Set<GroupData> all() {                   // porównywanie rozmiarów list otrzymywanych za pomocą metody Set (zbiory)
-    Set<GroupData> groups = new HashSet<>();
+  public Groups all() {                   // porównywanie rozmiarów list otrzymywanych za pomocą metody Set (zbiory)
+    Groups groups = new Groups();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {
       String name = element.getText();
