@@ -2,13 +2,8 @@ package kurs.zadania.adressbook.tests;
 
 import kurs.zadania.adressbook.model.ContactData;
 import kurs.zadania.adressbook.model.Contacts;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
