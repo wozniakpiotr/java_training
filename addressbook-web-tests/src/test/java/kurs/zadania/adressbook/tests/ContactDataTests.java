@@ -27,18 +27,18 @@ public class ContactDataTests extends TestBase {
 
   @Test
 
-public void testDataContact() {
+public void testAddressContact() {
 
     app.goTo().home();
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactDataFromEditForm = app.contact().infoFromEditForm(contact);
 
     assertThat(contact.getAddress(), equalTo(contactDataFromEditForm.getAddress()));
-    assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactDataFromEditForm)));
-    assertThat(contact.getAllphones(), equalTo(mergePhones(contactDataFromEditForm)));
+//    assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactDataFromEditForm)));
+//    assertThat(contact.getAllphones(), equalTo(mergePhones(contactDataFromEditForm)));
 
   }
-  /*
+
   @Test
 
 public void testEmailContact() {
@@ -48,7 +48,7 @@ public void testEmailContact() {
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
     assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
-    } */
+    }
 
 
   private  String mergeEmails (ContactData contact) {
@@ -56,7 +56,7 @@ public void testEmailContact() {
             .stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
   }
 
-/*
+
   @Test
 
   public void testPhoneContact() {
@@ -67,7 +67,7 @@ public void testEmailContact() {
 
     assertThat(contact.getAllphones(), equalTo(mergePhones(contactInfoFromEditForm)));
 
-  } */
+  }
 
   private String mergePhones (ContactData contact) {
     return Arrays.asList(contact.getHomephone(), contact.getMobile(), contact.getWorkphone())
