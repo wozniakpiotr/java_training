@@ -150,6 +150,24 @@ public class ContactHelper extends HelperBase{
             .withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address)
             .withEmail(email).withEmail2(email2).withEmail3(email3)
             .withHomephone(homephone).withMobile(mobile).withWorkphone(workphone);
+
+  }
+
+  public ContactData dataFromDetailsForm(ContactData contact) {
+    initContactDetailsById(contact.getId());
+    // String allDetails = wd.findElement(By.xpath("//div[@id='content']")).getText();
+    String allDetails = wd.findElement(By.id("content")).getText()
+            .replaceAll("(Member of.*|Notice:.*|[WMH]: |\\(www.*\\))","")
+            .replaceAll("\\s", "").replaceAll("[-()]", "")
+            .replaceAll("\n+", "\n");
+    wd.navigate().back();
+
+
+    return  new ContactData().withAllDetails(allDetails);
+  }
+
+  private void initContactDetailsById(int id) {
+    wd.findElement((By.cssSelector(String.format("a[href='view.php?id=%s']", id)))).click();
   }
 
 }
