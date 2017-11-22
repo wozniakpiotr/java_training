@@ -20,7 +20,7 @@ public class GroupCreationTests extends TestBase{
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
-
+/*
     @Test
     public void testBadGroupCreation() {
         app.goTo().groupPage();
@@ -31,6 +31,5 @@ public class GroupCreationTests extends TestBase{
         Groups after = app.group().all();
         assertThat(after, equalTo(before));
     }
-
-
+*/
 }
