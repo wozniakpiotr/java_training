@@ -4,7 +4,6 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import kurs.zadania.adressbook.model.GroupData;
-import kurs.zadania.adressbook.model.Groups;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -30,7 +29,6 @@ public class GroupDataGenerator {
       jCommander.usage();
       return;
     }
-
     generator.run();
   }
 
