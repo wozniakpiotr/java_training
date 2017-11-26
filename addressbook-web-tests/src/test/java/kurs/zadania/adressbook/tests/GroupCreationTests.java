@@ -5,6 +5,8 @@ import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import kurs.zadania.adressbook.model.GroupData;
 import kurs.zadania.adressbook.model.Groups;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,6 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
+
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
@@ -49,7 +52,6 @@ public class GroupCreationTests extends TestBase {
             return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
         }
     }
-
 
     @Test(dataProvider = "validGroupsFromJson")  // "validGroupsFromXml") - określa z którego pliku będą ładowane dane
     public void testGroupCreation(GroupData group) {
