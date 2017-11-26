@@ -1,5 +1,6 @@
 package kurs.zadania.adressbook.tests;
 
+import kurs.zadania.adressbook.model.ContactData;
 import kurs.zadania.adressbook.model.GroupData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,6 +37,20 @@ public class HbConnectionTest {
   public void testHbConnection() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
+    List <ContactData> result = session.createQuery( "from ContactData where deprecated = '0000-00-00'" ).list();
+    for (ContactData contact : result ) {  // {(List<GroupData>) result ) { -w przypadku wyciągania z bazy obiektów różnych typów
+      System.out.println(contact);
+    }
+    session.getTransaction().commit();
+    session.close();
+
+  }
+
+  /*
+  @Test
+  public void testHbConnection() {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
     List <GroupData> result = session.createQuery( "from GroupData" ).list();
     for (GroupData group : result ) {  // {(List<GroupData>) result ) { -w przypadku wyciągania z bazy obiektów różnych typów
       System.out.println(group);
@@ -44,4 +59,5 @@ public class HbConnectionTest {
     session.close();
 
   }
+  */
 }
