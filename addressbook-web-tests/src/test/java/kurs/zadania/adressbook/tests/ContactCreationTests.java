@@ -55,11 +55,11 @@ public class ContactCreationTests extends TestBase{
         @Test(dataProvider = "validContactsFromJson")  // "validContactsFromXml") - określa z którego pliku będą ładowane dane
     public void testContactCreation(ContactData contact) {
         app.goTo().home();
-    //    File photo = new File("src/test/resources/pict.png");
-        Contacts before = app.db().contacts();
+        File photo = new File("src/test/resources/pict.png");
+        Contacts before = app.contact().all();
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.db().contacts();
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 
