@@ -1,6 +1,7 @@
 package kurs.zadania.adressbook.appmanager;
 
 import kurs.zadania.adressbook.model.ContactData;
+import kurs.zadania.adressbook.model.Contacts;
 import kurs.zadania.adressbook.model.GroupData;
 import kurs.zadania.adressbook.model.Groups;
 import org.hibernate.Session;
@@ -26,9 +27,18 @@ public class DbHelper {
   public Groups groups() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<GroupData> result = session.createQuery( "from GrouptData" ).list();
+    List<GroupData> result = session.createQuery( "from GroupData" ).list();
     session.getTransaction().commit();
     session.close();
     return new Groups(result);
+  }
+
+  public Contacts contacts() {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<ContactData> result = session.createQuery( "from ContactData" ).list();
+    session.getTransaction().commit();
+    session.close();
+    return new Contacts(result);
   }
 }
