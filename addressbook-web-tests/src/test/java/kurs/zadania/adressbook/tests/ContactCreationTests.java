@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactCreationTests extends TestBase{
+public class ContactCreationTests extends TestBase {
 
 
     @DataProvider
@@ -62,7 +62,8 @@ public class ContactCreationTests extends TestBase{
         Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
-
+        verifyContactListInUI();
+      }
     }
 
     // dodatkowy test wskazujący ścieżkę do bieżącego katalog podczas wykonywania testu
@@ -91,4 +92,4 @@ public class ContactCreationTests extends TestBase{
 
     }
 */
-}
+
